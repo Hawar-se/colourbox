@@ -15,7 +15,6 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
 
-
   return (
     <div>
       <header className={classes.App_header}>
@@ -35,24 +34,25 @@ function App() {
         {/* Map through element from JSON file and display it on card  */}
         {JSON.map((elem) => (
           <Grid item xs={12} sm={6} md={6} key={JSON.indexOf(elem)}>
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardHeader
-                  title={` ${elem.name}`}
-                  titleTypographyProps={{ variant: "h4", color: "black" }}
-
-                  subheader={`( ${elem.company.name})`}
-                  subheaderTypographyProps={{ variant: "h6" }}
-                  // MuiCardHeader-subheader={{display:inline}}
-                  avatar={
-                    <Avatar
-                      aria-label="recipe"
-                      className={classes.avatar}
-                    ></Avatar>
-                  }
-                />
-              </CardActionArea>
-            </Card>
+            <Link href={elem.website} target="_blank" variant="body2">
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardHeader
+                    title={` ${elem.name}`}
+                    titleTypographyProps={{ variant: "h4", color: "black" }}
+                    subheader={`( ${elem.company.name})`}
+                    subheaderTypographyProps={{ variant: "h6" }}
+                    // MuiCardHeader-subheader={{display:inline}}
+                    avatar={
+                      <Avatar
+                        aria-label="recipe"
+                        className={classes.avatar}
+                      ></Avatar>
+                    }
+                  />
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>
